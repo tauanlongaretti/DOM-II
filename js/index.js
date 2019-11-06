@@ -3,18 +3,19 @@
 // Mouse Over
 
 let nav = document.querySelector("nav");
-  
-nav.addEventListener("mouseover", function(event) {   
+
+nav.addEventListener("mouseover", function(event) {
   event.target.style.color = "#17A2B8";
 
 setTimeout(function() {
-    event.target.style.color = "";
-  }, 1000);
+    event.target.style.color = "black";
+  }, 5000);
 }, false);
 
 // Wheel
 
 function zoom(event) {
+  event.preventDefault();
     scale += event.deltaY * -0.01;
 
     scale = Math.min(Math.max(.8, scale), 1.2);
@@ -42,9 +43,16 @@ italicize.addEventListener('mouseleave', () => {
 })
 
 // Click
-const border = document.querySelector('img');
-border.addEventListener('click', () => {
-    border.style.border = '2px solid #17A2B8';
+const intro = document.querySelector('.intro');
+const introP = document.querySelector('p');
+
+intro.addEventListener('click', () => {
+    intro.style.background = '#17A2B8';
+    intro.style.color = 'white';
+});    
+
+  introP.addEventListener('click', (event) => {
+    event.stopPropagation();
 });
 
 // Mouse Out
